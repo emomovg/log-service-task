@@ -8,7 +8,7 @@ class LogService
 {
     public function writeLog(string $message, ?string $channel = ''): void
     {
-        $dir = 'Logs/' . $channel;
+        $dir = 'logs/' . $channel;
 
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
@@ -23,7 +23,7 @@ class LogService
         $channel = array_key_exists('channel', $data) ? $data['channel'] : '';
         $date = array_key_exists('date', $data) ? $data['date'] : date('Y-m-d');
 
-        $dir = 'Logs/' . $channel;
+        $dir = 'logs/' . $channel;
         $logFileName = $dir . '/log-' . $date . '.log';
 
         if (!file_exists($logFileName)) {
